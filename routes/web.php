@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
 Route::get('/', [UsersController::class, 'index']);
 
 Route::post('/users/create', [UsersController::class, 'create']);
 
 Route::post('/users/view', [UsersController::class, 'view']);
+
+Route::resource('products', ProductController::class);
